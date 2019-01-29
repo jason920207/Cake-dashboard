@@ -1,0 +1,35 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-29T10:49:59-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-29T14:52:44-05:00
+-->
+<div class="row">
+  <div class="col-md-3">
+    {{> createbutton}}
+  </div>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">username</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each customers as |customer|}}
+        <tr>
+          <section data-id="{{customer.id}}">
+            <th scope="row">{{customer.id}}</th>
+            <td>{{customer.username}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
