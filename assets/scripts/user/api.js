@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:23-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-29T11:44:12-05:00
+ * @Last modified time: 2019-01-29T22:04:11-05:00
  */
 const config = require('../config')
 const store = require('../store')
@@ -14,7 +14,13 @@ const SignIn = data => {
     data
   })
 }
-
+const SignUp = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-up',
+    method: 'POST',
+    data
+  })
+}
 const SignOut = () => {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
@@ -25,7 +31,20 @@ const SignOut = () => {
   })
 }
 
+const ChangePassword = data => {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   SignIn,
-  SignOut
+  SignUp,
+  SignOut,
+  ChangePassword
 }

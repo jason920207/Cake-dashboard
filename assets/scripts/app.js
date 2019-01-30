@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-29T16:11:51-05:00
+ * @Last modified time: 2019-01-29T22:39:53-05:00
  */
 
 
@@ -23,12 +23,14 @@ $(() => {
   // User
   $('#signin').on('submit', userevent.onSignIn)
   $('#signout').on('click', userevent.onSignOut)
+  $('#signup').on('submit', userevent.onSignUp)
+  $('#changepassword').on('submit',userevent.OnChangePassword)
 
   // Customer
   $('#Customer').on('click', costomerevents.onGetCustomers)
-  $('body').on('submit', '#CreateCustomer', costomerevents.onCreateCustomers)
-
-
+  $('body').on('submit', '#CreateCustomer', costomerevents.onCreateCustomer)
+  $('body').on('click', '.deletecustomer', costomerevents.onDeleteCustomer)
+  $('body').on('submit', '.UpdateCustomer', costomerevents.onUpdateCustomer)
 
   // TOOGLE SIDEBAR
   $('#menu-toggle').click(function (e) {
