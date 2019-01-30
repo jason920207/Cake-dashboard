@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T13:32:16-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-29T22:56:03-05:00
+ * @Last modified time: 2019-01-30T06:31:16-05:00
  */
 
 const api = require('./api')
@@ -16,9 +16,16 @@ const onGetCustomers = event => {
     .catch(ui.failure)
 }
 
+const onGetCustomer = event => {
+  event.preventDefault()
+  const id = getFormFields(event.target).id
+  api.GetCustomer(id)
+    .then(ui.onGetCustomerSuccess)
+    .catch(ui.failure)
+}
+
 const onCreateCustomer = event => {
   event.preventDefault()
-  $('#exampleModal').modal('hide')
   const data = getFormFields(event.target)
   console.log(data)
   api.CreateCustomer(data)
@@ -28,7 +35,6 @@ const onCreateCustomer = event => {
 
 const onDeleteCustomer = event => {
   event.preventDefault()
-
   const id = event.target.dataset.id
   api.DeleteCustomer(id)
     .then(() => onGetCustomers())
@@ -37,13 +43,18 @@ const onDeleteCustomer = event => {
 
 const onUpdateCustomer = evenet => {
   event.preventDefault()
-  const id = $(event.target).closest('section').data("id")
-  console.log(id)
+  $('#UpdateModal').modal('hide')
+  const data = getFormFields(event.target)
+  const id = data.customer.id
+  api.UpdateCustomer(data,id)
+    .then(() => onGetCustomers())
+    .catch(ui.failure())
 }
 
 
 module.exports = {
   onGetCustomers,
+  onGetCustomer,
   onCreateCustomer,
   onDeleteCustomer,
   onUpdateCustomer

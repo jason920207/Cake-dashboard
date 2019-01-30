@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-29T22:39:53-05:00
+ * @Last modified time: 2019-01-30T06:26:45-05:00
  */
 
 
@@ -28,6 +28,8 @@ $(() => {
 
   // Customer
   $('#Customer').on('click', costomerevents.onGetCustomers)
+  $('body').on('click', '#ShowCustomers', costomerevents.onGetCustomers)
+  $('body').on('submit', '#getcustomer', costomerevents.onGetCustomer)
   $('body').on('submit', '#CreateCustomer', costomerevents.onCreateCustomer)
   $('body').on('click', '.deletecustomer', costomerevents.onDeleteCustomer)
   $('body').on('submit', '.UpdateCustomer', costomerevents.onUpdateCustomer)
