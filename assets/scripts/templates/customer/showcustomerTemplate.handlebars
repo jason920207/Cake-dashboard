@@ -2,87 +2,84 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T06:23:51-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-31T05:41:33-05:00
+@Last modified time: 2019-01-31T09:17:34-05:00
 -->
 
-<div id="page-content-wrapper">
-    <div id="content" class="container-fluid">
-      <div class="row">
-          <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
-          <form id="getcustomer"class="form-inline">
-            <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Customer Id" name="id" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-          <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-      </div>
-      <div class="row">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">USERNAME</th>
-              <th scope="col">PASSWORD</th>
-              <th scope="col">EMAIL</th>
-              <th scope="col">PHONE</th>
-              <th scope="col">DELETE</th>
-              <th scope="col">UPDATE</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <section data-id="{{customer.id}}">
-                  <th scope="row">{{customer.id}}</th>
-                  <td>{{customer.username}}</td>
-                  <td>{{customer.password}}</td>
-                  <td>{{customer.email}}</td>
-                  <td>{{customer.phone}}</td>
-                  <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
-                  <td>
-                    <button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateModal" >
-                    Update
-                    </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title customer-id" >{{customer.id}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form class="UpdateCustomer">
-                              <div class="form-group">
-                                <label >Email address</label>
-                                <input type="email" class="form-control"  aria-describedby="emailHelp"  placeholder="Email" name="customer[email]" value="{{customer.email}}">
-                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                              </div>
-                              <div class="form-group">
-                                <label >Username</label>
-                                <input type="text" class="form-control" placeholder="Username" name="customer[username]" value="{{customer.username}}">
-                              </div>
-                              <div class="form-group">
-                                <label >Password</label>
-                                <input type="password" class="form-control" placeholder="Password" name="customer[password]" value="{{customer.password}}">
-                              </div>
-                              <div class="form-group">
-                                <label >Phone</label>
-                                <input type="text" class="form-control" placeholder="Phone" name="customer[phone]" value="{{customer.phone}}">
-                              </div>
-                              <button type="submit"  class="btn btn-primary submitbutton" >Submit</button>
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
+<div class="row">
+    <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
+    <form id="getcustomer"class="form-inline">
+      <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Customer Id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">USERNAME</th>
+        <th scope="col">PASSWORD</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">DELETE</th>
+        <th scope="col">UPDATE</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <section data-id="{{customer.id}}">
+            <th scope="row">{{customer.id}}</th>
+            <td>{{customer.username}}</td>
+            <td>{{customer.password}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+            <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
+            <td>
+              <button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateModal" >
+              Update
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title customer-id" >{{customer.id}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-                  </td>
-                </section>
-              </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                    <div class="modal-body">
+                      <form class="UpdateCustomer">
+                        <div class="form-group">
+                          <label >Email address</label>
+                          <input type="email" class="form-control"  aria-describedby="emailHelp"  placeholder="Email" name="customer[email]" value="{{customer.email}}">
+                          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label >Username</label>
+                          <input type="text" class="form-control" placeholder="Username" name="customer[username]" value="{{customer.username}}">
+                        </div>
+                        <div class="form-group">
+                          <label >Password</label>
+                          <input type="password" class="form-control" placeholder="Password" name="customer[password]" value="{{customer.password}}">
+                        </div>
+                        <div class="form-group">
+                          <label >Phone</label>
+                          <input type="text" class="form-control" placeholder="Phone" name="customer[phone]" value="{{customer.phone}}">
+                        </div>
+                        <button type="submit"  class="btn btn-primary submitbutton" >Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </section>
+        </tr>
+    </tbody>
+  </table>
 </div>

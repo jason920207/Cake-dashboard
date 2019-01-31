@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-30T12:07:56-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T15:48:39-05:00
+ * @Last modified time: 2019-01-31T18:11:24-05:00
  */
 const api = require('./api')
 const ui = require('./ui')
@@ -26,6 +26,7 @@ const onGetOrder = event => {
 const onCreateOrder = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('order data', data)
   api.CreateOrder(data)
     .then(() => onGetOrders())
     .catch(ui.failure)

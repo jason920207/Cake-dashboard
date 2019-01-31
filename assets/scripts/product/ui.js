@@ -2,10 +2,13 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T16:27:21-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T15:30:05-05:00
+ * @Last modified time: 2019-01-31T13:14:35-05:00
  */
 const showProductsTemplate = require('../templates/product/getproductsinfo.handlebars')
 const showProductTemplate = require('../templates/product/showcustomerTemplate.handlebars')
+const ShowProductsFront = require('../templates/product/ShowProducts.handlebars')
+
+
 
 const onGetProductsSuccess = response => {
   console.log(response)
@@ -20,6 +23,12 @@ const onGetProductSuccess = response => {
   $('#content').html(showCustomerHtml)
 }
 
+const onShowProductsSuccess = response => {
+  const ShowProductFrontHtml = ShowProductsFront({ products: response.products })
+  $('#shop').html(ShowProductFrontHtml)
+}
+
+
 const failure = (error) => {
   console.error(error)
 }
@@ -27,5 +36,6 @@ const failure = (error) => {
 module.exports = {
   onGetProductsSuccess,
   onGetProductSuccess,
+  onShowProductsSuccess,
   failure
 }

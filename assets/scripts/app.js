@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-31T05:46:00-05:00
+ * @Last modified time: 2019-01-31T13:53:38-05:00
  */
 
 
@@ -23,6 +23,17 @@ const dashboardTemp = require('./templates/dashboard/dashboard.handlebars')
 const store = require('./store')
 $(() => {
   // your JS code goes here
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  $(function () {
+    productevents.ShowProducts()
+  })
+
+  $('#signout').on('click', productevents.ShowProducts)
+
+
+
   // User
   $('#signin').on('submit', userevent.onSignIn)
   $('#signout').on('click', userevent.onSignOut)
@@ -58,8 +69,6 @@ $(() => {
   $('body').on('click', '#ShowCategories', categoryevents.onGetCategories)
   $('body').on('submit', '#GetCategory', categoryevents.onGetCategory)
   $('body').on('submit', '#CreateCategory', categoryevents.onCreateCategory)
-  $('body').on('submit', '#UpdatCategory', categoryevents.onUpdateCategory)
-  // $('body').on('submit', '#UpdateOrder', categoryevents.onUpdateOrder)
   $('body').on('click', '.deletecategory', categoryevents.onDeleteCategory)
 
 
@@ -69,10 +78,7 @@ $(() => {
     $('#content').html(showDashBoardHtml)
   })
 
+  // //cake-detail
+  // $('body').on('click', '#cake-detail', productevents.showproduct)
 
-  // TOOGLE SIDEBAR
-  $('#menu-toggle').click(function (e) {
-    e.preventDefault()
-    $('#wrapper').toggleClass('toggled')
-  })
 })

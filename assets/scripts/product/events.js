@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T16:27:35-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T12:09:25-05:00
+ * @Last modified time: 2019-01-31T13:14:39-05:00
  */
 const api = require('./api')
 const ui = require('./ui')
@@ -57,10 +57,18 @@ const onDeleteProduct = event => {
     .catch(ui.failure)
 }
 
+const ShowProducts = () => {
+  api.GetProducts()
+    .then(ui.onShowProductsSuccess)
+    .catch(ui.failure)
+}
+
+
 module.exports = {
   onGetProducts,
   onGetProduct,
   onCreateProduct,
   onUpdateProduct,
-  onDeleteProduct
+  onDeleteProduct,
+  ShowProducts,
 }

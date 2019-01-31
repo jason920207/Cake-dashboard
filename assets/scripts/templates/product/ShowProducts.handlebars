@@ -1,0 +1,19 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-31T10:01:48-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-31T14:00:13-05:00
+-->
+
+{{#each products as |product|}}
+    <div class="card text-center m-2" style="width: 100%;">
+      <img src="{{product.picture}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">{{product.name}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Price: ${{product.price}}</li>
+          <li class="list-group-item">DESCRIPTION: {{product.description}}</li>
+        </ul>
+      </div>
+    </div>
+{{/each}}
