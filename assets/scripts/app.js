@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T21:25:13-05:00
+ * @Last modified time: 2019-01-31T05:46:00-05:00
  */
 
 
@@ -19,6 +19,7 @@ const customerevents = require('./customer/events')
 const productevents = require('./product/events')
 const orderevents = require('./order/events')
 const categoryevents = require('./category/events')
+const dashboardTemp = require('./templates/dashboard/dashboard.handlebars')
 const store = require('./store')
 $(() => {
   // your JS code goes here
@@ -62,6 +63,11 @@ $(() => {
   $('body').on('click', '.deletecategory', categoryevents.onDeleteCategory)
 
 
+  // dashboard
+  $('#dashboard').on('click', function () {
+    const showDashBoardHtml = dashboardTemp()
+    $('#content').html(showDashBoardHtml)
+  })
 
 
   // TOOGLE SIDEBAR

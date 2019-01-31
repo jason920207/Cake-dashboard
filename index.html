@@ -32,8 +32,44 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button  class="btn btn-primary">Submit</button>
+                <button  class="btn btn-primary btn-lg btn-block">Submit</button>
               </form>
+              <button type="button" class="btn btn-primary mt-2 btn-lg btn-block" data-toggle="modal" data-target="#SignUpModal">
+                Sign Up
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id='signup'>
+                        <div class="form-group">
+                          <label for="SignUpEmail1">Email address</label>
+                          <input type="email" class="form-control" id="SignUpEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="credentials[email]">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="SignUpPassword1">Password</label>
+                          <input type="password" class="form-control" id="SignUpPassword1" placeholder="Password" name="credentials[password]">
+                        </div>
+                        <div class="form-group">
+                          <label for="ConformPassword1">Comform Password</label>
+                          <input type="password" class="form-control" id="ConformPassword1" placeholder="Comform Password" name="credentials[password_confirmation]">
+                        </div>
+                        <button  class="btn btn-primary" >Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -51,43 +87,7 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                  <button type="button" class="btn btn-primary ml-sm-2" data-toggle="modal" data-target="#SignUpModal">
-                    Sign Up
-                  </button>
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form id='signup'>
-                            <div class="form-group">
-                              <label for="SignUpEmail1">Email address</label>
-                              <input type="email" class="form-control" id="SignUpEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="credentials[email]">
-                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                              <label for="SignUpPassword1">Password</label>
-                              <input type="password" class="form-control" id="SignUpPassword1" placeholder="Password" name="credentials[password]">
-                            </div>
-                            <div class="form-group">
-                              <label for="ConformPassword1">Comform Password</label>
-                              <input type="password" class="form-control" id="ConformPassword1" placeholder="Comform Password" name="credentials[password_confirmation]">
-                            </div>
-                            <button  class="btn btn-primary" >Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          </form>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <button type="button" class="btn btn-primary ml-sm-2" data-toggle="modal" data-target="#ChangePasswordModal">
                     Change Password
                   </button>
@@ -132,7 +132,7 @@
               <div id="sidebar-wrapper">
                   <ul class="sidebar-nav">
                       <li class="sidebar-brand">
-                          <a href="#">
+                          <a id="dashboard" href="#">
                               Dashboard
                           </a>
                       </li>
