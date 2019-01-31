@@ -1,0 +1,57 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-30T09:18:04-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T11:53:46-05:00
+-->
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-29T10:49:59-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T11:53:46-05:00
+-->
+<div class="row">
+    <button id="ShowProducts" class="btn btn-primary">Show All Products</button>
+    <form id="getproduct"class="form-inline">
+      <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Product Id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    {{> updateform}}
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Picture</th>
+        <th scope="col">PRODUCT NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">ALLERGEN</th>
+        <th scope="col">CATEGORY</th>
+        <th scope="col">CreatedBy</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products as |product|}}
+        <tr>
+          <section data-id="{{product.id}}">
+            <th scope="row">{{product.id}}</th>
+            <td><img class="thumb-img" src="{{product.picture}}"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.allergen}}</td>
+            <td>{{product.category.name}}</td>
+            <td>{{product.user.email}}</td>
+            <td><button class="deleteproduct btn btn-primary" data-id="{{product.id}}">Delete</button></td>
+          </section>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  {{> createbutton}}
+</div>

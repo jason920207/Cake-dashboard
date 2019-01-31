@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T06:23:51-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-30T06:51:48-05:00
+@Last modified time: 2019-01-30T14:43:29-05:00
 -->
 <div class="row">
     <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
@@ -32,7 +32,7 @@
             <td>{{customer.password}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phone}}</td>
-            <td><button class="deletecustomer" data-id="{{customer.id}}">Delete</button></td>
+            <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
             <td>
               <button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateModal" >
               Update
@@ -43,7 +43,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Modal title</h5>
+                      <h5 class="modal-title customer-id" >{{customer.id}}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>

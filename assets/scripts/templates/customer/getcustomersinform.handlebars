@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-30T06:52:34-05:00
+@Last modified time: 2019-01-30T09:07:17-05:00
 -->
 <div class="row">
     <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
@@ -21,6 +21,7 @@
         <th scope="col">PASSWORD</th>
         <th scope="col">EMAIL</th>
         <th scope="col">PHONE</th>
+        <th scope="col">CreatedBy</th>
         <th scope="col">DELETE</th>
       </tr>
     </thead>
@@ -33,6 +34,7 @@
             <td>{{customer.password}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phone}}</td>
+            <td>{{customer.user.email}}</td>
             <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
           </section>
         </tr>

@@ -1,30 +1,29 @@
 /**
  * @Author: xiaojiezhang
- * @Date:   2019-01-29T16:27:25-05:00
+ * @Date:   2019-01-30T12:07:51-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T12:10:30-05:00
+ * @Last modified time: 2019-01-30T15:35:31-05:00
  */
-
 const config = require('../config')
 const store = require('../store')
 
-const GetProducts = () => {
+const GetOrders = () => {
   return $.ajax({
-    url: config.apiUrl + '/products',
+    url: config.apiUrl + '/orders',
     method: 'GET'
   })
 }
 
-const GetProduct = id => {
+const GetOrder = id => {
   return $.ajax({
-    url: config.apiUrl + '/products/' + id,
+    url: config.apiUrl + '/orders/' + id,
     method: 'GET'
   })
 }
 
-const CreateProduct = data => {
+const CreateOrder = data => {
   return $.ajax({
-    url: config.apiUrl + '/products',
+    url: config.apiUrl + '/orders',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -33,9 +32,9 @@ const CreateProduct = data => {
   })
 }
 
-const UpdateProduct = (data, id) => {
+const UpdateOrder = (data, id) => {
   return $.ajax({
-    url: config.apiUrl + '/products/' + id,
+    url: config.apiUrl + '/orders/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -44,9 +43,9 @@ const UpdateProduct = (data, id) => {
   })
 }
 
-const DeleteProduct = id => {
+const DeleteOrder = id => {
   return $.ajax({
-    url: config.apiUrl + '/products/' + id,
+    url: config.apiUrl + '/orders/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -54,9 +53,9 @@ const DeleteProduct = id => {
   })
 }
 module.exports = {
-  GetProducts,
-  GetProduct,
-  CreateProduct,
-  UpdateProduct,
-  DeleteProduct
+  GetOrders,
+  GetOrder,
+  CreateOrder,
+  UpdateOrder,
+  DeleteOrder
 }

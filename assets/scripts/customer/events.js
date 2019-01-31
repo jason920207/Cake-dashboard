@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T13:32:16-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T06:31:16-05:00
+ * @Last modified time: 2019-01-30T16:42:08-05:00
  */
 
 const api = require('./api')
@@ -36,6 +36,7 @@ const onCreateCustomer = event => {
 const onDeleteCustomer = event => {
   event.preventDefault()
   const id = event.target.dataset.id
+  console.log(id)
   api.DeleteCustomer(id)
     .then(() => onGetCustomers())
     .catch(ui.failure)
@@ -43,11 +44,15 @@ const onDeleteCustomer = event => {
 
 const onUpdateCustomer = evenet => {
   event.preventDefault()
-  $('#UpdateModal').modal('hide')
+  // $('#UpdateModal').modal('hide')
   const data = getFormFields(event.target)
-  const id = data.customer.id
-  api.UpdateCustomer(data,id)
-    .then(() => onGetCustomers())
+  const id = $('.customer-id').text()
+  api.UpdateCustomer(data, id)
+    .then(() => {
+      api.GetCustomer(id)
+        .then(ui.onGetCustomerSuccess)
+        .catch(ui.failure)
+    })
     .catch(ui.failure())
 }
 

@@ -1,0 +1,70 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-30T06:23:51-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T16:41:22-05:00
+-->
+<div class="row">
+    <button id="ShowCategories" class="btn btn-primary">Show All Categories</button>
+    <form id="GetCategory"class="form-inline">
+      <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Product Id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">CATEGORY NAME</th>
+        <th scope="col">UpdateTime</th>
+        <th scope="col">DELETE</th>
+        <th scope="col">UPDATE</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <section data-id="{{category.id}}">
+            <th scope="row">{{category.id}}</th>
+            <td>{{category.name}}</td>
+            <td>{{category.updated_at}}</td>
+            <td><button class="deletecategory btn btn-primary" data-id="{{category.id}}">Delete</button></td>
+            <td><button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateCategoryModal" >
+            Update
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="UpdateCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" >Update Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="UpdatCategory">
+                      <fieldset disabled>
+                        <div class="form-group">
+                          <label >ID</label>
+                          <input type="text" class="form-control"  placeholder="ID" name="category[id]" value="{{category.id}}">
+                        </div>
+                      </fieldset>
+                      <div class="form-group">
+                        <label>CATEGORY</label>
+                        <input type="text" class="form-control" placeholder="Category" name="category[name]" value="{{category.name}}">
+                      </div>
+                      <button type="submit"  class="btn btn-primary submitbutton" >Submit</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          </section>
+        </tr>
+    </tbody>
+  </table>
+</div>

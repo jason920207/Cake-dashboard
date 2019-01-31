@@ -1,0 +1,52 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-30T12:16:45-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T16:18:42-05:00
+-->
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-30T09:18:04-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T16:18:42-05:00
+-->
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-29T10:49:59-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T16:18:42-05:00
+-->
+<div class="row">
+    <button id="ShowCategories" class="btn btn-primary">Show All Categories</button>
+    <form id="GetCategory"class="form-inline">
+      <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Product Id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">CATEGORY NAME</th>
+        <th scope="col">UpdateTime</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each categories as |category|}}
+        <tr>
+          <section data-id="{{category.id}}">
+            <th scope="row">{{category.id}}</th>
+            <td>{{category.name}}</td>
+            <td>{{category.updated_at}}</td>
+            <td><button class="deletecategory btn btn-primary" data-id="{{category.id}}">Delete</button></td>
+          </section>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  {{> createbutton}}
+</div>

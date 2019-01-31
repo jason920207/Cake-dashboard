@@ -1,0 +1,111 @@
+<!--
+@Author: xiaojiezhang
+@Date:   2019-01-30T06:23:51-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T12:00:22-05:00
+-->
+<div class="row">
+    <button id="ShowProducts" class="btn btn-primary">Show All Products</button>
+    <form id="getproduct"class="form-inline">
+      <input class="form-control ml-sm-4 mr-sm-2" type="search" placeholder="Search Customer Id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Picture</th>
+        <th scope="col">PRODUCT NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">ALLERGEN</th>
+        <th scope="col">CATEGORY</th>
+        <th scope="col">CreatedBy</th>
+        <th scope="col">DELETE</th>
+        <th scope="col">UPDATE</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <section data-id="{{product.id}}">
+            <th scope="row">{{product.id}}</th>
+            <td><img class="thumb-img" src="{{product.picture}}"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.allergen}}</td>
+            <td>{{product.category.name}}</td>
+            <td>{{product.user.email}}</td>
+            <td><button class="deleteproduct btn btn-primary" data-id="{{product.id}}">Delete</button></td>
+            <td>
+              <!--
+              @Author: xiaojiezhang
+              @Date:   2019-01-30T05:27:13-05:00
+@Last modified by:   xiaojiezhang
+@Last modified time: 2019-01-30T12:00:22-05:00
+              -->
+              <button type="button" class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateproductModal">
+                Update
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="UpdateproductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="UpdateProduct">
+                        <fieldset disabled>
+                          <div class="form-group">
+                            <label >ID</label>
+                            <input type="text" class="form-control"  placeholder="ID" name="product[id]" value="{{product.id}}">
+                          </div>
+                        </fieldset>
+                        <div class="form-group">
+                          <label>PRODUCT NAME</label>
+                          <input type="text" class="form-control"  aria-describedby="emailHelp"  placeholder="Product Name" name="product[name]" value="{{product.name}}">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label>DESCRIPTION</label>
+                          <input type="text" class="form-control" placeholder="Description" name="product[description]" value="{{product.description}}">
+                        </div>
+                        <div class="form-group">
+                          <label>PICTURE URL</label>
+                          <input type="text" class="form-control" placeholder="Picture Url" name="product[picture]" value="{{product.picture}}">
+                        </div>
+                        <div class="form-group">
+                          <label>PRICE</label>
+                          <input type="text" class="form-control" placeholder="Price" name="product[price]" value="{{product.price}}">
+                        </div>
+                        <div class="form-group">
+                          <label>ALLERGEN</label>
+                          <input type="text" class="form-control" placeholder="Allergen" name="product[allergen]" value="{{product.allergen}}">
+                        </div>
+                        <div class="form-group">
+                          <label>Category</label>
+                          <select class="category-select mr-sm-2"  name="product[category_id]" >
+                            <option selected>Choose Category</option>
+                            <option value="1">Cake</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </section>
+        </tr>
+    </tbody>
+  </table>
+</div>

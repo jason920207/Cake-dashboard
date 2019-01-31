@@ -1,7 +1,7 @@
 # @Author: xiaojiezhang
 # @Date:   2019-01-29T08:31:40-05:00
 # @Last modified by:   xiaojiezhang
-# @Last modified time: 2019-01-29T08:40:31-05:00
+# @Last modified time: 2019-01-30T13:08:51-05:00
 #!/bin/bash
 
 curl "http://localhost:4741/orders" \
@@ -11,9 +11,9 @@ curl "http://localhost:4741/orders" \
   --header "Authorization: Token token=${TOKEN}"\
   --data '{
     "order": {
-      "customer_id": "'"${c_id}"'",
-      "product_id": "'"${p_id}"'",
-      "date":"'"${date}"'"
+      "customer_id": "'"${cid}"'",
+      "product_id": "'"${pid}"'",
+      "amount":"'"${amount}"'"
     }
   }'
 
