@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-01T08:57:03-05:00
+ * @Last modified time: 2019-02-01T10:44:59-05:00
  */
 
 
@@ -26,6 +26,8 @@ $(() => {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+
+
   $(function () {
     productevents.ShowProducts()
   })

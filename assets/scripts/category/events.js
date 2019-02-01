@@ -2,17 +2,20 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-30T15:56:20-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T21:29:56-05:00
+ * @Last modified time: 2019-02-01T10:37:08-05:00
  */
 
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
-
+const resetform = () => {
+  $('form input').val("");
+}
 const onGetCategories = () => {
   api.GetCategories()
     .then(ui.onGetCategoriesSuccess)
     .catch(ui.failure)
+
 }
 
 const onGetCategory = event => {

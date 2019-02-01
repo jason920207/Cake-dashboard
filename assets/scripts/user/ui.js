@@ -2,10 +2,11 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-01T09:00:14-05:00
+ * @Last modified time: 2019-02-01T11:28:02-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
+const showwarntemp = require('../templates/tooltip/warning.handlebars')
 
 
 const onSignInSuccess = response => {
@@ -33,18 +34,34 @@ const onSignOutSuccess = () => {
   $('#SignIn').css('display', 'inline')
 }
 
-const OnChangePassword = () => {
+const OnChangePasswordSuccess = () => {
   console.log('Change password success')
 }
 
-const failure = (error) => {
-  console.error(error)
+const onSignInfailure = () => {
+  $('#warning').fadeIn()
+  $('#warning').html(showwarntemp({error: 'Sign In Fail'})).fadeOut(3000)
+}
+const onSignOutfailure = () => {
+  $('#warning').fadeIn()
+  $('#warning').html(showwarntemp({error: 'Sign Out Fail'})).fadeOut(3000)
+}
+const onSignUpfailure = () => {
+  $('#warning').fadeIn()
+  $('#warning').html(showwarntemp({error: 'Sign up Fail'})).fadeOut(3000)
+}
+const OnChangePasswordfailure = () => {
+  $('#warning').fadeIn()
+  $('#warning').html(showwarntemp({error: 'Change Password Fail'})).fadeOut(3000)
 }
 
 module.exports = {
   onSignInSuccess,
   onSignOutSuccess,
   onSignUpSuccess,
-  OnChangePassword,
-  failure
+  OnChangePasswordSuccess,
+  onSignInfailure,
+  onSignOutfailure,
+  onSignUpfailure,
+  OnChangePasswordfailure
 }

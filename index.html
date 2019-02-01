@@ -28,16 +28,16 @@
                   Sign In
                 </button>
                 <div class="dropdown-menu">
-                  <form class="px-4 py-3" id="signin" >
+                  <form class="px-4 py-3" id="signin"  novalidate>
                     <div class="form-group">
                       <label for="exampleDropdownFormEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleDropdownFormEmail1" name="credentials[email]" value="NA@NA.COM" placeholder="email@example.com">
+                      <input type="email" class="form-control" id="exampleDropdownFormEmail1" aria-describedby="emailHelp" name="credentials[email]" value="NA@NA.COM" placeholder="email@example.com" required="required">
                     </div>
                     <div class="form-group">
                       <label for="exampleDropdownFormPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleDropdownFormPassword1" name="credentials[password]" value="NANA" placeholder="Password">
+                      <input type="password" class="form-control" id="exampleDropdownFormPassword1" name="credentials[password]" value="NANA" placeholder="Password" required="required">
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button  class="btn btn-primary">Sign in</button>
                   </form>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#SignUpModal">New around here? Sign up</a>
@@ -115,7 +115,9 @@
             </div>
           </div>
         </nav>
+        <div id="warning">
 
+        </div>
 
         <div id="Dashboard">
           <!--navbar -->
