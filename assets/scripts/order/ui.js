@@ -2,14 +2,14 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-30T12:08:01-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T14:39:35-05:00
+ * @Last modified time: 2019-02-01T11:41:14-05:00
  */
 const ShowOrders = require('../templates/order/showorders.handlebars')
 const ShowOrder = require('../templates/order/showorder.handlebars')
+const showwarntemp = require('../templates/tooltip/warning.handlebars')
 
 
 const onGetOrdersSuccess = response => {
-  console.log(response)
   const showOrdersHtml = ShowOrders({ orders: response.orders })
   $('#content').html(showOrdersHtml)
 }
@@ -19,8 +19,9 @@ const onGetOrderSuccess = response => {
   $('#content').html(showOrderHtml)
 }
 
-const failure = (error) => {
-  console.error(error)
+const failure = () => {
+  $('#warning').fadeIn()
+  $('#warning').html(showwarntemp({error: 'error'})).fadeOut(3000)
 }
 
 module.exports = {
