@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-01T11:28:02-05:00
+ * @Last modified time: 2019-02-01T14:38:24-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
@@ -11,7 +11,6 @@ const showwarntemp = require('../templates/tooltip/warning.handlebars')
 
 const onSignInSuccess = response => {
   store.user = response.user
-  console.log(store.user)
   $('#signincard').css('display', 'none')
   $('#signout-button').css('display', 'inline')
   $('#Dashboard').css('display', 'block')

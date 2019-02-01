@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-01T11:52:00-05:00
+@Last modified time: 2019-02-01T14:56:12-05:00
 -->
 <div class="row">
     <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
@@ -31,9 +31,9 @@
           <section data-id="{{customer.id}}">
             <th scope="row">{{customer.id}}</th>
             <td>{{customer.username}}</td>
-            <td>{{customer.password}}</td>
+            <td>{{password customer.password}}</td>
             <td>{{customer.email}}</td>
-            <td>{{customer.phone}}</td>
+            <td>{{phone customer.phone}}</td>
             <td>{{customer.user.email}}</td>
             <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
           </section>
