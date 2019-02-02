@@ -15,6 +15,8 @@ jQuery
 AJAX
 CURL
 
+
+Planning Process:
 Planning I began with the user authentication and communicating with the products table in the API. This is the dashboard for the website owner, you can get customer information like phone and email address, the owner can build the product and show on the home page ,create a order information.
 
 Future versions
