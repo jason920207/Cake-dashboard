@@ -1,4 +1,4 @@
-Yoga Sequencing Client
+Online shop dashboard Client
 
 API:
 Deployed: https://jason920207.github.io/Cake-dashboard/
@@ -18,7 +18,8 @@ CURL
 Planning I began with the user authentication and communicating with the products table in the API. This is the dashboard for the website owner, you can get customer information like phone and email address, the owner can build the product and show on the home page ,create a order information.
 
 Future versions
-
+Add new order table linked between orderitem and the user
+Add new user authorization for the customer
 
 
 Wireframes https://imgur.com/a/ukqJLcg
