@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-01T14:38:24-05:00
+ * @Last modified time: 2019-02-02T08:13:10-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
@@ -14,7 +14,7 @@ const onSignInSuccess = response => {
   $('#signincard').css('display', 'none')
   $('#signout-button').css('display', 'inline')
   $('#Dashboard').css('display', 'block')
-  $('.product-show').css('display', 'none')
+  $('#carousel').hide()
   $('#SignIn').css('display', 'none')
   const SignInHtml = signintemp({ user: response.user })
   $('#content').html(SignInHtml)
@@ -28,7 +28,7 @@ const onSignOutSuccess = () => {
   store.user = null
   $('#signincard').css('display', 'block')
   $('#Dashboard').css('display', 'none')
-  $('.product-show').css('display', 'block')
+  $('#carousel').show()
   $('#signout-button').css('display', 'none')
   $('#SignIn').css('display', 'inline')
 }
