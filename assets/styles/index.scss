@@ -1,7 +1,7 @@
 // @Author: xiaojiezhang
 // @Date:   2019-01-28T21:32:34-05:00
 // @Last modified by:   xiaojiezhang
-// @Last modified time: 2019-01-31T14:13:34-05:00
+// @Last modified time: 2019-02-03T14:43:44-05:00
 
 
 
@@ -11,6 +11,16 @@
   width:60px;
   height:60px;
 }
+
+
+.table-wrapper-scroll-y {
+display: block;
+max-height: 500px;
+overflow-y: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
 
 /* body {
     height: 100%;

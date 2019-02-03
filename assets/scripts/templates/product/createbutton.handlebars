@@ -2,12 +2,11 @@
 @Author: xiaojiezhang
 @Date:   2019-01-29T14:07:09-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-30T12:20:21-05:00
+@Last modified time: 2019-02-03T14:48:07-05:00
 -->
-<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-backdrop="false" data-target="#CreateProductModal">
+<button type="button" class="btn btn-primary btn-lg btn-block mt-2" data-toggle="modal" data-backdrop="false" data-target="#CreateProductModal">
   create
 </button>
-
 <!-- Modal -->
 <div class="modal fade" id="CreateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -45,7 +44,11 @@
             <label>Category</label>
             <select class="category-select mr-sm-2" name="product[category_id]">
               <option selected>Choose Category</option>
+<!--               {{#if categories}}
+  <option value="categories.id">{{categories.name}}</option> -->
+<!--               {{else}} -->
               <option value="1">Cake</option>
+<!--               {{/if}} -->
             </select>
           </div>
           <button type="submit" class="btn btn-primary" >Submit</button>

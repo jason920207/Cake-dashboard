@@ -2,13 +2,13 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T09:18:04-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-31T10:02:16-05:00
+@Last modified time: 2019-02-03T14:41:43-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-31T10:02:16-05:00
+@Last modified time: 2019-02-03T14:41:43-05:00
 -->
 <div class="row">
     <button id="ShowProducts" class="btn btn-primary">Show All Products</button>
@@ -19,6 +19,9 @@
     {{> updateform}}
 </div>
 <div class="row">
+  {{> createbutton}}
+</div>
+<div class="table-wrapper-scroll-y">
   <table class="table">
     <thead>
       <tr>
@@ -36,7 +39,6 @@
     <tbody>
       {{#each products as |product|}}
         <tr>
-          <section data-id="{{product.id}}">
             <th scope="row">{{product.id}}</th>
             <td><img class="thumb-img" src="{{product.picture}}"></td>
             <td>{{product.name}}</td>
@@ -46,12 +48,8 @@
             <td>{{product.category.name}}</td>
             <td>{{product.user.email}}</td>
             <td><button class="deleteproduct btn btn-primary" data-id="{{product.id}}">Delete</button></td>
-          </section>
         </tr>
       {{/each}}
     </tbody>
   </table>
-</div>
-<div class="row">
-  {{> createbutton}}
 </div>

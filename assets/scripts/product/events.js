@@ -2,14 +2,14 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T16:27:35-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-03T09:14:32-05:00
+ * @Last modified time: 2019-02-03T12:53:11-05:00
  */
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
-const onGetProducts = () => {
 
+const onGetProducts = () => {
   api.GetProducts()
     .then(ui.onGetProductsSuccess)
     .catch(ui.failure)

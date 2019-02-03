@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-03T10:26:41-05:00
+ * @Last modified time: 2019-02-03T14:19:28-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
@@ -14,9 +14,14 @@ const onSignInSuccess = response => {
   store.user = response.user
   $('#signincard').css('display', 'none')
   $('#signout-button').css('display', 'inline')
-  $('#Dashboard').css('display', 'block')
-  $('#carousel').html('')
+  // $('#Dashboard').css('display', 'block')
+
   $('#SignIn').css('display', 'none')
+
+
+  $('#Dashboard').show()
+
+  $('#carousel').html('')
   const SignInHtml = signintemp({ user: response.user })
   $('#content').html(SignInHtml)
   $('#product-row').html('')
@@ -29,7 +34,7 @@ const onSignUpSuccess = response => {
 const onSignOutSuccess = () => {
   store.user = null
   $('#signincard').css('display', 'block')
-  $('#Dashboard').css('display', 'none')
+  $('#Dashboard').hide()
   $('#signout-button').css('display', 'none')
   $('#SignIn').css('display', 'inline')
   const ShowProductFrontHtml = ShowProductsFront({ products: store.products })

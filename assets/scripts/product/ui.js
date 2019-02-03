@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T16:27:21-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-03T10:11:03-05:00
+ * @Last modified time: 2019-02-03T13:53:36-05:00
  */
 const showProductsTemplate = require('../templates/product/getproductsinfo.handlebars')
 const showProductTemplate = require('../templates/product/showcustomerTemplate.handlebars')
@@ -13,7 +13,7 @@ const store = require('../store')
 
 
 const onGetProductsSuccess = response => {
-  const showCustomersHtml = showProductsTemplate({ products: response.products })
+  const showCustomersHtml = showProductsTemplate({products: response.products})
   $('#content').html(showCustomersHtml)
   store.products = response.products
 }
