@@ -2,17 +2,20 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T16:27:21-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-01T11:41:41-05:00
+ * @Last modified time: 2019-02-03T10:11:03-05:00
  */
 const showProductsTemplate = require('../templates/product/getproductsinfo.handlebars')
 const showProductTemplate = require('../templates/product/showcustomerTemplate.handlebars')
 const ShowProductsFront = require('../templates/product/ShowProducts.handlebars')
+const ShowProducts2Front = require('../templates/product/showproducts2.handlebars')
 const showwarntemp = require('../templates/tooltip/warning.handlebars')
+const store = require('../store')
 
 
 const onGetProductsSuccess = response => {
   const showCustomersHtml = showProductsTemplate({ products: response.products })
   $('#content').html(showCustomersHtml)
+  store.products = response.products
 }
 
 
@@ -23,7 +26,11 @@ const onGetProductSuccess = response => {
 
 const onShowProductsSuccess = response => {
   const ShowProductFrontHtml = ShowProductsFront({ products: response.products })
-  $('#shop').html(ShowProductFrontHtml)
+  store.products = response.products
+  $('#carousel').html(ShowProductFrontHtml)
+
+  const ProductrowFrontHtml = ShowProducts2Front({ products: store.products })
+  $('#product-row').html(ProductrowFrontHtml)
 }
 
 

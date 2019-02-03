@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T13:32:16-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-01-30T16:42:08-05:00
+ * @Last modified time: 2019-02-03T09:15:00-05:00
  */
 
 const api = require('./api')
@@ -27,7 +27,6 @@ const onGetCustomer = event => {
 const onCreateCustomer = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.CreateCustomer(data)
     .then(() => onGetCustomers())
     .catch(ui.failure)
@@ -36,7 +35,6 @@ const onCreateCustomer = event => {
 const onDeleteCustomer = event => {
   event.preventDefault()
   const id = event.target.dataset.id
-  console.log(id)
   api.DeleteCustomer(id)
     .then(() => onGetCustomers())
     .catch(ui.failure)

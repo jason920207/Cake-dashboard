@@ -2,22 +2,24 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-02T08:13:10-05:00
+ * @Last modified time: 2019-02-03T10:26:41-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
 const showwarntemp = require('../templates/tooltip/warning.handlebars')
-
+const ShowProductsFront = require('../templates/product/ShowProducts.handlebars')
+const ShowProducts2Front = require('../templates/product/showproducts2.handlebars')
 
 const onSignInSuccess = response => {
   store.user = response.user
   $('#signincard').css('display', 'none')
   $('#signout-button').css('display', 'inline')
   $('#Dashboard').css('display', 'block')
-  $('#carousel').hide()
+  $('#carousel').html('')
   $('#SignIn').css('display', 'none')
   const SignInHtml = signintemp({ user: response.user })
   $('#content').html(SignInHtml)
+  $('#product-row').html('')
 }
 
 const onSignUpSuccess = response => {
@@ -28,9 +30,13 @@ const onSignOutSuccess = () => {
   store.user = null
   $('#signincard').css('display', 'block')
   $('#Dashboard').css('display', 'none')
-  $('#carousel').show()
   $('#signout-button').css('display', 'none')
   $('#SignIn').css('display', 'inline')
+  const ShowProductFrontHtml = ShowProductsFront({ products: store.products })
+  $('#carousel').html(ShowProductFrontHtml)
+
+  const ProductrowFrontHtml = ShowProducts2Front({ products: store.products })
+  $('#product-row').html(ProductrowFrontHtml)
 }
 
 const OnChangePasswordSuccess = () => {
