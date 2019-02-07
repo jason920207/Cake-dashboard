@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:42:34-05:00
+@Last modified time: 2019-02-06T14:56:12-05:00
 -->
 <div class="row">
     <button id="ShowCustomers" class="btn btn-primary">Show All Customers</button>
@@ -38,7 +38,11 @@
             <td>{{customer.email}}</td>
             <td>{{phone customer.phone}}</td>
             <td>{{customer.user.email}}</td>
+            {{#if (isdeleteproduct customer.user.email) }}
             <td><button class="deletecustomer btn btn-primary" data-id="{{customer.id}}">Delete</button></td>
+            {{else}}
+            <td><a>You can't Delete</a></td>
+            {{/if}}
           </section>
         </tr>
       {{/each}}

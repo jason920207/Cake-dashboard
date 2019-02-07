@@ -2,7 +2,7 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-28T21:32:34-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-02T08:09:12-05:00
+ * @Last modified time: 2019-02-05T16:27:56-05:00
  */
 
 
@@ -34,9 +34,7 @@ $(() => {
 
   $('#signout').on('click', productevents.ShowProducts)
 
-  $('#signout').on('click', function(){
-    console.log("sign out click")
-  })
+
 
   // User
   $('#signin').on('submit', userevent.onSignIn)

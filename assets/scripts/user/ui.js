@@ -2,13 +2,14 @@
  * @Author: xiaojiezhang
  * @Date:   2019-01-29T10:15:29-05:00
  * @Last modified by:   xiaojiezhang
- * @Last modified time: 2019-02-03T14:19:28-05:00
+ * @Last modified time: 2019-02-05T16:03:30-05:00
  */
 const store = require('../store')
 const signintemp = require('../templates/auth/signintemp.handlebars')
 const showwarntemp = require('../templates/tooltip/warning.handlebars')
 const ShowProductsFront = require('../templates/product/ShowProducts.handlebars')
 const ShowProducts2Front = require('../templates/product/showproducts2.handlebars')
+const showsuccess = require('../templates/tooltip/success.handlebars')
 
 const onSignInSuccess = response => {
   store.user = response.user
@@ -17,8 +18,6 @@ const onSignInSuccess = response => {
   // $('#Dashboard').css('display', 'block')
 
   $('#SignIn').css('display', 'none')
-
-
   $('#Dashboard').show()
 
   $('#carousel').html('')
@@ -28,7 +27,8 @@ const onSignInSuccess = response => {
 }
 
 const onSignUpSuccess = response => {
-  console.log('Sign up success')
+  $('#warning').fadeIn()
+  $('#warning').html(showsuccess({message: 'Sign up Success'})).fadeOut(3000)
 }
 
 const onSignOutSuccess = () => {
@@ -45,7 +45,8 @@ const onSignOutSuccess = () => {
 }
 
 const OnChangePasswordSuccess = () => {
-  console.log('Change password success')
+  $('#warning').fadeIn()
+  $('#warning').html(showsuccess({message: 'Change Password Success'})).fadeOut(3000)
 }
 
 const onSignInfailure = () => {

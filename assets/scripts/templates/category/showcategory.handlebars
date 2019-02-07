@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T06:23:51-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-01-30T16:41:22-05:00
+@Last modified time: 2019-02-06T14:55:14-05:00
 -->
 <div class="row">
     <button id="ShowCategories" class="btn btn-primary">Show All Categories</button>
@@ -28,6 +28,7 @@
             <th scope="row">{{category.id}}</th>
             <td>{{category.name}}</td>
             <td>{{category.updated_at}}</td>
+            {{#if (isdeleteproduct category.user.email) }}
             <td><button class="deletecategory btn btn-primary" data-id="{{category.id}}">Delete</button></td>
             <td><button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateCategoryModal" >
             Update
@@ -63,6 +64,10 @@
               </div>
             </div>
           </td>
+          {{else}}
+          <td><a>You can't Delete</a></td>
+          <td><a>You can't Update</a></td>
+          {{/if}}
           </section>
         </tr>
     </tbody>

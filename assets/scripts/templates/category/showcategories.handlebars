@@ -2,19 +2,19 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T12:16:45-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:42:45-05:00
+@Last modified time: 2019-02-06T14:56:32-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-30T09:18:04-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:42:45-05:00
+@Last modified time: 2019-02-06T14:56:32-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:42:45-05:00
+@Last modified time: 2019-02-06T14:56:32-05:00
 -->
 <div class="row">
     <button id="ShowCategories" class="btn btn-primary">Show All Categories</button>
@@ -43,7 +43,11 @@
             <th scope="row">{{category.id}}</th>
             <td>{{category.name}}</td>
             <td>{{category.updated_at}}</td>
+            {{#if (isdeleteproduct category.user.email) }}
             <td><button class="deletecategory btn btn-primary" data-id="{{category.id}}">Delete</button></td>
+            {{else}}
+            <td><a>You can't Delete</a></td>
+            {{/if}}
           </section>
         </tr>
       {{/each}}

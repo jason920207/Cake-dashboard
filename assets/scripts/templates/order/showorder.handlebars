@@ -2,7 +2,7 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T06:23:51-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:32:53-05:00
+@Last modified time: 2019-02-06T14:55:32-05:00
 -->
 <div class="row">
     <button id="ShowOrders" class="btn btn-primary">Show All Orders</button>
@@ -36,6 +36,7 @@
             <td>{{order.amount}}</td>
             <td>{{order.user.email}}</td>
             <td>{{order.updated_at}}</td>
+            {{#if (isdeleteproduct order.user.email) }}
             <td><button class="deleteorder btn btn-primary" data-id="{{order.id}}">Delete</button></td>
             <td>
               <button type="button"  class="btn btn-primary ml-sm-4" data-toggle="modal" data-backdrop="false" data-target="#UpdateOrderModal" >
@@ -83,6 +84,10 @@
                 </div>
               </div>
             </td>
+            {{else}}
+            <td><a>You can't Delete</a></td>
+            <td><a>You can't Update</a></td>
+            {{/if}}
           </section>
         </tr>
     </tbody>

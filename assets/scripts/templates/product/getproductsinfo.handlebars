@@ -2,13 +2,13 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T09:18:04-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:41:43-05:00
+@Last modified time: 2019-02-06T11:08:52-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:41:43-05:00
+@Last modified time: 2019-02-06T11:08:52-05:00
 -->
 <div class="row">
     <button id="ShowProducts" class="btn btn-primary">Show All Products</button>
@@ -47,7 +47,11 @@
             <td>{{product.allergen}}</td>
             <td>{{product.category.name}}</td>
             <td>{{product.user.email}}</td>
+            {{#if (isdeleteproduct product.user.email) }}
             <td><button class="deleteproduct btn btn-primary" data-id="{{product.id}}">Delete</button></td>
+            {{else}}
+            <td><a>You can't Delete</a></td>
+            {{/if}}
         </tr>
       {{/each}}
     </tbody>

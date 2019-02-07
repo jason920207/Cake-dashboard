@@ -2,19 +2,19 @@
 @Author: xiaojiezhang
 @Date:   2019-01-30T12:16:45-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:41:58-05:00
+@Last modified time: 2019-02-06T14:56:03-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-30T09:18:04-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:41:58-05:00
+@Last modified time: 2019-02-06T14:56:03-05:00
 -->
 <!--
 @Author: xiaojiezhang
 @Date:   2019-01-29T10:49:59-05:00
 @Last modified by:   xiaojiezhang
-@Last modified time: 2019-02-03T14:41:58-05:00
+@Last modified time: 2019-02-06T14:56:03-05:00
 -->
 <div class="row">
     <button id="ShowOrders" class="btn btn-primary">Show All Orders</button>
@@ -51,8 +51,11 @@
             <td>{{order.amount}}</td>
             <td>{{order.user.email}}</td>
             <td>{{order.updated_at}}</td>
+            {{#if (isdeleteproduct order.user.email) }}
             <td><button class="deleteorder btn btn-primary" data-id="{{order.id}}">Delete</button></td>
-
+            {{else}}
+            <td><a>You can't Delete</a></td>
+            {{/if}}
           </section>
         </tr>
       {{/each}}
