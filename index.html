@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="col-9">
+          <a class="navbar-brand" href="#">Cake Shop</a>
+        </div>
+        <div class="col-3">
+          <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <button  id="SignIn" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sign In
+              </button>
+              <div class="dropdown-menu">
+                <form class="px-4 py-3" id="signin"  novalidate>
+                  <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" aria-describedby="emailHelp" name="credentials[email]"  placeholder="email@example.com" required="required">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" name="credentials[password]"  placeholder="Password" required="required">
+                  </div>
+                  <button  class="btn btn-primary">Sign in</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#SignUpModal">New around here? Sign up</a>
+              </div>
+
+
+                <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id='signup'>
+                          <div class="form-group">
+                            <label for="SignUpEmail1">Email address</label>
+                            <input type="email" class="form-control" id="SignUpEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="credentials[email]">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          </div>
+                          <div class="form-group">
+                            <label for="SignUpPassword1">Password</label>
+                            <input type="password" class="form-control" id="SignUpPassword1" placeholder="Password" name="credentials[password]">
+                          </div>
+                          <div class="form-group">
+                            <label for="ConformPassword1">Comform Password</label>
+                            <input type="password" class="form-control" id="ConformPassword1" placeholder="Comform Password" name="credentials[password_confirmation]">
+                          </div>
+                          <button  class="btn btn-primary" >Submit</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div id="signout-button">
+                <button type="button" class="btn btn-primary ml-sm-2" data-toggle="modal" data-target="#ChangePasswordModal">
+                  Change Password
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="ChangePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id='changepassword'>
+                          <div class="form-group">
+                            <label for="Old">Old Password</label>
+                            <input type="password" class="form-control" id="Old" placeholder="Password" name="passwords[old]">
+                          </div>
+                          <div class="form-group">
+                            <label for="New">New Password</label>
+                            <input type="password" class="form-control" id="New" placeholder="Comform Password" name="passwords[new]">
+                          </div>
+                          <button  class="btn btn-primary" >Submit</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button id='signout' class='btn btn-primary ml-sm-2'>Log out</button>
+
+              </div>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+<!-- table-wrapper-scroll-y -->
+      <div class="container-fluid ">
+        <div class='row' id="warning"></div>
+
+        <div id="Dashboard">
+            <!--navbar -->
+              <div class="row" id="sidebar">
+                <div class="col-3">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="dashboard" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+                    <a class="nav-link" id="Customer" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Customer</a>
+                    <a class="nav-link" id="Products" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Product</a>
+                    <a class="nav-link" id="Orders" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Order</a>
+                    <a class="nav-link" id="Categories" data-toggle="pill" href="#v-pills-Categories" role="tab" aria-controls="v-pills-Categories" aria-selected="false">Category</a>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="tab-content" id="content">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                    <div class="tab-pane fade" id="v-pills-Categories" role="tabpanel" aria-labelledby="v-pills-Categories-tab">...</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+            <!-- show product carousel-->
+          <div class="container  mx-auto" id="carousel"></div>
+
+          <!-- show products-->
+          <div class="container " id="product-row">
+
+          </div>
+
+
+      </div>
+      <div class='foot'>
+        <div class='container'>
+          <a>Contact</a>
+          <a>Build by jason</a>
+
+        </div>
+      </div>
+    </body>
+</html>
